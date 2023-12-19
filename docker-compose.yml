@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  memcached:
+    image: "memcached:latest"
+    ports:
+      - "11211:11211"
+
+  db:
+    image: "mysql:latest"
+    environment:
+      MYSQL_DATABASE: mydjangoapp
+      MYSQL_USER: mydjangoappuser
+      MYSQL_PASSWORD: mydjangoapppassword
+      MYSQL_ROOT_PASSWORD: myrootpassword
+    ports:
+      - "3310:3306"
